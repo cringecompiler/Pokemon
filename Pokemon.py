@@ -3,6 +3,7 @@ from abc import abstractmethod
 
 
 class AnimeMon:
+    """абстрактный класс"""
     @classmethod
     @abstractmethod
     def inc_exp(cls, value):
@@ -20,6 +21,7 @@ class AnimeMon:
 
 
 def train(animemon: AnimeMon):
+    """увеличение опыта на случайное число"""
     step_size, level_size = 10, 100
     sparring_qty = (level_size - animemon.exp % level_size) // step_size
     for i in range(sparring_qty):
@@ -29,11 +31,13 @@ def train(animemon: AnimeMon):
 
 
 class BasePokemon:
+    """базовый класс"""
     def __str__(self):
         return f'{self.name}/{self.poketype}'
 
 
 class EmojiMixin():
+    """миксин, заменяющий тип покемона на эмодзи"""
     emoji = {'grass': '🌿', 'fire': '🔥', 'water': '🌊', 'electric': '⚡'}
 
     def __str__(self):
